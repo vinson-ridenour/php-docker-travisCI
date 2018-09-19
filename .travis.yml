@@ -7,4 +7,4 @@ before_install:
   - docker build -t morgenes23/test-php-docker-travis -f app.dockerfile .
 
 script:
-  - docker run morgenes23/docker-react npm run test -- --coverage
+  - docker run morgenes23/test-php-docker-travis npm run test -- --coverage
