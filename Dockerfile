@@ -15,7 +15,7 @@ COPY . .
 RUN chown -R www-data:www-data /var/www 
 RUN chmod 755 /var/www
 
-RUN php artisan key:generate
+# RUN php artisan key:generate
 RUN php artisan migrate
 # RUN php artisan serve
 
