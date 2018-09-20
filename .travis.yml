@@ -6,5 +6,20 @@ services:
 before_install:
   - docker build -t morgenes23/test-php-docker-travis -f app.dockerfile .
 
-# script:
-#  - docker run morgenes23/test-php-docker-travis
+script:
+  - docker run morgenes23/test-php-docker-travis
+
+deploy:
+  provider: elasticbeanstalk
+  on:
+    branch: master
+  region: "us-east-2"
+  app: "php-docker-travis"
+  env: "PhpDockerTravis-env"
+  bucket_name: elasticbeanstalk-us-east-2-218183310905
+  bucket_path: "php-docker-travis"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+
