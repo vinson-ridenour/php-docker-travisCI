@@ -2,7 +2,7 @@ FROM php:7.1-fpm as builder
 
 COPY composer.json .
 
-RUN composer install
+# RUN composer install
 
 COPY . .
 
