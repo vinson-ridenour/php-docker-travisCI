@@ -6,5 +6,5 @@ services:
 before_install:
   - docker build -t morgenes23/test-php-docker-travis -f app.dockerfile .
 
-script:
-  - docker run morgenes23/test-php-docker-travis
+# script:
+#  - docker run morgenes23/test-php-docker-travis
