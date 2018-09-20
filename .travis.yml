@@ -3,8 +3,8 @@ sudo: required
 services:
   - docker
 
-# before_install:
-#  - docker build -t morgenes23/test-php-docker-travis -f .
+before_install:
+- docker build -t morgenes23/php-docker-travis -f .
 
 #script:
 #  - docker run morgenes23/test-php-docker-travis
