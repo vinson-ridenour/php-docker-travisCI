@@ -3,11 +3,17 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t morgenes23/test-php-docker-travis -f app.dockerfile .
+# before_install:
+#  - docker build -t morgenes23/test-php-docker-travis -f .
 
-script:
-  - docker run morgenes23/test-php-docker-travis
+#script:
+#  - docker run morgenes23/test-php-docker-travis
+after_success:
+  - docker build -t morgenes23/php-docker-travis .
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push morgenes23/php-docker-travis
 
 deploy:
   provider: elasticbeanstalk
